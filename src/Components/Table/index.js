@@ -1,6 +1,7 @@
 import React from "react";
 import { Page, Document, StyleSheet } from "@react-pdf/renderer";
-import TableRow from "../tableRow/tableRow";
+import TableRow from "../TableRow";
+import TableHeader from "../TableHeader";
 
 const styles = StyleSheet.create({
   page: {
@@ -9,9 +10,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const Table = ({ data }) => (
+const Table = ({ title: string, data }) => (
   <Document>
     <Page size="A4" style={styles.page}>
+      <TableHeader fields={data.headerFields} />
       <TableRow data={data} />
     </Page>
   </Document>

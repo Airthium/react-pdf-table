@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { Fragment } from "react";
+import { PDFViewer } from "@react-pdf/renderer";
+import Table from "./Components/Table";
 
 function App() {
+
+  const cleanedData = {
+    
+  }
+  const data = {
+    items: [
+      "test",
+      "test",
+      "test",
+      "test",
+      "test",
+      "test",
+    ],
+    headerFields: [
+      "Champ 1",
+      "Champ 2",
+      "Champ 3",
+      "Champ 4",
+      "Champ 5",
+      "Champ 6",
+    ]
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <PDFViewer width="1000" height="600">
+        <Table data={data} />
+      </PDFViewer>
+    </Fragment>
   );
 }
 
