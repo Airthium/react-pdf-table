@@ -1,6 +1,6 @@
 import { View, StyleSheet } from '@react-pdf/renderer'
 
-import { ReactPdfTableRow } from '../../index.d'
+import { ReactPdfTableColumn } from '../../index.d'
 
 import Cell from '../cell'
 
@@ -8,7 +8,7 @@ import Cell from '../cell'
  * Header props
  */
 export interface HeaderProps {
-  headers?: ReactPdfTableRow
+  headers?: ReactPdfTableColumn
 }
 
 /**
@@ -22,8 +22,7 @@ const Header = ({ headers }: HeaderProps): JSX.Element | null => {
     row: {
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'space-between',
-      border: '1px solid black'
+      justifyContent: 'space-between'
     }
   })
 

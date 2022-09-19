@@ -1,10 +1,12 @@
-export type ReactPdfTableRow = (string | JSX.Element | undefined)[]
+export type ReactPdfTableCell = string | JSX.Element | undefined
+
+export type ReactPdfTableColumn = ReactPdfTableCell[]
 
 export interface ReactPdfTableData {
-  title?: string | JSX.Element
-  headers?: ReactPdfTableRow
-  rows?: ReactPdfTableRow[]
-  footer?: ReactPdfTableRow
+  title?: ReactPdfTableCell
+  headers?: ReactPdfTableColumn
+  columns?: ReactPdfTableColumn[]
+  footer?: ReactPdfTableColumn
 }
 
 const Table = ({ data }: { data: ReactPdfTableData }) => JSX.Element

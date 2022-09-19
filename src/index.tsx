@@ -1,9 +1,29 @@
-import { Page, Document, StyleSheet } from '@react-pdf/renderer'
+import { StyleSheet, Text, View } from '@react-pdf/renderer'
 
-import { ReactPdfTableData } from '../index.d'
+import {
+  ReactPdfTableCell,
+  ReactPdfTableColumn,
+  ReactPdfTableData
+} from '../index.d'
+import Cell from './cell'
 
-import Header from './header'
-import Row from './row'
+const Header = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
+  return <Cell content={content} />
+}
+
+const Rows = ({ content }: { content: ReactPdfTableColumn }): JSX.Element => {
+  return (
+    <>
+      {content.map((value) => (
+        <Cell content={value} />
+      ))}
+    </>
+  )
+}
+
+const Footer = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
+  return <Cell content={content} />
+}
 
 /**
  * Table props
@@ -18,10 +38,20 @@ export interface TableProps {
  * @returns Table
  */
 const Table = ({ data }: TableProps): JSX.Element => {
-  // Style
   const style = StyleSheet.create({
-    page: {
-      fontSize: 11,
+    view: {
+      padding: '10px'
+    },
+    title: {
+      fontSize: '16px',
+      marginBottom: '10px'
+    },
+    subView: {
+      display: 'flex',
+      flexDirection: 'row'
+    },
+    column: {
+      display: 'flex',
       flexDirection: 'column'
     }
   })
@@ -30,12 +60,23 @@ const Table = ({ data }: TableProps): JSX.Element => {
    * Render
    */
   return (
-    <Document>
-      <Page size="A4" style={style.page}>
-        <Header headers={data.headers} />
-        <Row rows={data.rows} />
-      </Page>
-    </Document>
+    <View style={style.view}>
+      {data.title && (
+        <View style={style.title}>
+          <Text>{data.title}</Text>
+        </View>
+      )}
+
+      <View style={style.subView}>
+        {data.columns?.map((column, index) => (
+          <View key={index} style={style.column}>
+            <Header content={data.headers?.[index]} />
+            <Rows content={column} />
+            <Footer content={data.footer?.[index]} />
+          </View>
+        ))}
+      </View>
+    </View>
   )
 }
 
