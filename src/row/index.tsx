@@ -3,12 +3,21 @@ import { View, StyleSheet, Text } from '@react-pdf/renderer'
 
 import { ReactPdfTableRow } from '../../index.d'
 
+/**
+ * Row props
+ */
 export interface RowProps {
   rows?: ReactPdfTableRow[]
 }
 
-const Row = ({ rows }: RowProps) => {
-  const styles = StyleSheet.create({
+/**
+ * Row
+ * @param prop Props
+ * @returns Row
+ */
+const Row = ({ rows }: RowProps): JSX.Element | null => {
+  // Style
+  const style = StyleSheet.create({
     tableContainer: {
       flexDirection: 'column',
       flexWrap: 'wrap',
@@ -24,8 +33,11 @@ const Row = ({ rows }: RowProps) => {
     }
   })
 
+  /**
+   * Render
+   */
   return rows ? (
-    <View style={styles.tableContainer}>
+    <View style={style.tableContainer}>
       {rows.map((row, index) => (
         <>
           <Text>{row}</Text>

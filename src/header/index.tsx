@@ -1,16 +1,24 @@
-import React from 'react'
 import { View, StyleSheet } from '@react-pdf/renderer'
 
 import { ReactPdfTableRow } from '../../index.d'
 
 import Cell from '../cell'
 
+/**
+ * Header props
+ */
 export interface HeaderProps {
   headers?: ReactPdfTableRow
 }
 
-const Header = ({ headers }: HeaderProps) => {
-  const styles = StyleSheet.create({
+/**
+ * Header
+ * @param props Props
+ * @returns Header
+ */
+const Header = ({ headers }: HeaderProps): JSX.Element | null => {
+  // Style
+  const style = StyleSheet.create({
     row: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -19,8 +27,11 @@ const Header = ({ headers }: HeaderProps) => {
     }
   })
 
+  /**
+   * Render
+   */
   return headers ? (
-    <View style={styles.row}>
+    <View style={style.row}>
       {headers.map((field, index) => (
         <Cell key={index} content={field} />
       ))}

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Page, Document, StyleSheet } from '@react-pdf/renderer'
 
 import { ReactPdfTableData } from '../index.d'
@@ -13,7 +12,12 @@ export interface TableProps {
   data: ReactPdfTableData
 }
 
-const Table = ({ data }: TableProps) => {
+/**
+ * Table
+ * @param props Props
+ * @returns Table
+ */
+const Table = ({ data }: TableProps): JSX.Element => {
   // Style
   const style = StyleSheet.create({
     page: {
