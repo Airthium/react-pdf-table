@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
+import { Fragment } from 'react'
 
 import {
   ReactPdfTableCell,
@@ -14,8 +15,8 @@ const Header = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
 const Rows = ({ content }: { content: ReactPdfTableColumn }): JSX.Element => {
   return (
     <>
-      {content.map((value) => (
-        <Cell content={value} />
+      {content.map((value, index) => (
+        <Cell key={index} content={value} />
       ))}
     </>
   )
@@ -48,11 +49,15 @@ const Table = ({ data }: TableProps): JSX.Element => {
     },
     subView: {
       display: 'flex',
-      flexDirection: 'row'
+      flexDirection: 'row',
+      borderTop: '1px solid black',
+      borderLeft: '1px solid black'
     },
     column: {
       display: 'flex',
-      flexDirection: 'column'
+      width: '100%',
+      flexDirection: 'column',
+      borderRight: '1px solid black'
     }
   })
 

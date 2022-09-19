@@ -1,12 +1,12 @@
 import { StyleSheet, Text } from '@react-pdf/renderer'
 
-import { ReactPdfTableColumn } from '../../index.d'
+import { ReactPdfTableCell } from '../../index.d'
 
 /**
  * Cell props
  */
 export interface CellProps {
-  content: ReactPdfTableColumn[0]
+  content: ReactPdfTableCell
 }
 
 /**
@@ -17,13 +17,16 @@ export interface CellProps {
 const Cell = ({ content }: CellProps): JSX.Element => {
   // Style
   const style = StyleSheet.create({
-    cell: {}
+    cell: {
+      padding: '5px',
+      borderBottom: '1px solid black'
+    }
   })
 
   /**
    * Render
    */
-  return <Text style={style.cell}>{content}</Text>
+  return <Text style={style.cell}>{content || ' '}</Text>
 }
 
 export default Cell
