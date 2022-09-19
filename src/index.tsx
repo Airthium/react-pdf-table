@@ -1,10 +1,10 @@
 import React from 'react'
 import { Page, Document, StyleSheet } from '@react-pdf/renderer'
 
-import { ReactPdfTableData } from './index.d'
+import { ReactPdfTableData } from '../index.d'
 
-import Header from './src/header'
-import Row from './src/row'
+import Header from './header'
+import Row from './row'
 
 /**
  * Table props
