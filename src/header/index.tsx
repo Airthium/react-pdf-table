@@ -1,6 +1,6 @@
 import { View, StyleSheet } from '@react-pdf/renderer'
 
-import { ReactPdfTableColumn } from '../../index.d'
+import { ReactPdfTableCells } from '../../index.d'
 
 import Cell from '../cell'
 
@@ -8,7 +8,7 @@ import Cell from '../cell'
  * Header props
  */
 export interface HeaderProps {
-  headers?: ReactPdfTableColumn
+  headers?: ReactPdfTableCells
 }
 
 /**

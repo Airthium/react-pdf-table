@@ -1,18 +1,25 @@
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
-import { Fragment } from 'react'
+import { useCallback } from 'react'
 
 import {
   ReactPdfTableCell,
-  ReactPdfTableColumn,
-  ReactPdfTableData
+  ReactPdfTableCells,
+  ReactPdfTableColumnData,
+  ReactPdfTableData,
+  ReactPdfTableRowData
 } from '../index.d'
 import Cell from './cell'
 
 const Header = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
-  return <Cell content={content} />
+  return (
+    <Cell
+      content={content}
+      style={{ backgroundColor: '#abc', color: 'white' }}
+    />
+  )
 }
 
-const Rows = ({ content }: { content: ReactPdfTableColumn }): JSX.Element => {
+const Rows = ({ content }: { content: ReactPdfTableCells }): JSX.Element => {
   return (
     <>
       {content.map((value, index) => (
@@ -23,7 +30,7 @@ const Rows = ({ content }: { content: ReactPdfTableColumn }): JSX.Element => {
 }
 
 const Footer = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
-  return <Cell content={content} />
+  return <Text>{content}</Text>
 }
 
 /**
@@ -50,8 +57,7 @@ const Table = ({ data }: TableProps): JSX.Element => {
     subView: {
       display: 'flex',
       flexDirection: 'row',
-      borderTop: '1px solid black',
-      borderLeft: '1px solid black'
+      border: '1px solid black'
     },
     column: {
       display: 'flex',
@@ -60,6 +66,40 @@ const Table = ({ data }: TableProps): JSX.Element => {
       borderRight: '1px solid black'
     }
   })
+
+  /**
+   * Table render
+   * @returns Render
+   */
+  const tableRender = useCallback((): JSX.Element[] => {
+    // Row
+    const rowData = data as ReactPdfTableRowData
+    if (rowData.rows) {
+      const columns: ReactPdfTableCells[] = []
+
+      rowData.rows.forEach((row, rowIndex) => {
+        row.forEach((cell, colIndex) => {
+          if (!columns[colIndex]) columns[colIndex] = []
+          columns[colIndex][rowIndex] = cell
+        })
+      })
+
+      return columns.map((column, index) => (
+        <View key={index} style={style.column}>
+          <Header content={data.headers?.[index]} />
+          <Rows content={column} />
+        </View>
+      ))
+    }
+
+    const columnData = data as ReactPdfTableColumnData
+    return columnData.columns.map((column, index) => (
+      <View key={index} style={style.column}>
+        <Header content={data.headers?.[index]} />
+        <Rows content={column} />
+      </View>
+    ))
+  }, [])
 
   /**
    * Render
@@ -72,15 +112,9 @@ const Table = ({ data }: TableProps): JSX.Element => {
         </View>
       )}
 
-      <View style={style.subView}>
-        {data.columns?.map((column, index) => (
-          <View key={index} style={style.column}>
-            <Header content={data.headers?.[index]} />
-            <Rows content={column} />
-            <Footer content={data.footer?.[index]} />
-          </View>
-        ))}
-      </View>
+      <View style={style.subView}>{tableRender()}</View>
+
+      <Footer content={data.footer} />
     </View>
   )
 }

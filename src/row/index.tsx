@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, StyleSheet, Text } from '@react-pdf/renderer'
 
-import { ReactPdfTableColumn } from '../../index.d'
+import { ReactPdfTableCells } from '../../index.d'
 
 /**
  * Row props
  */
 export interface RowProps {
-  rows?: ReactPdfTableColumn[]
+  rows?: ReactPdfTableCells[]
 }
 
 /**

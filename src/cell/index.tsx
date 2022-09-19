@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from '@react-pdf/renderer'
+import ReactPDF, { StyleSheet, Text } from '@react-pdf/renderer'
 
 import { ReactPdfTableCell } from '../../index.d'
 
@@ -7,6 +7,7 @@ import { ReactPdfTableCell } from '../../index.d'
  */
 export interface CellProps {
   content: ReactPdfTableCell
+  style?: ReactPDF.Styles['key']
 }
 
 /**
@@ -14,19 +15,20 @@ export interface CellProps {
  * @param props Props
  * @returns Cell
  */
-const Cell = ({ content }: CellProps): JSX.Element => {
+const Cell = ({ content, style }: CellProps): JSX.Element => {
   // Style
-  const style = StyleSheet.create({
+  const internalStyle = StyleSheet.create({
     cell: {
       padding: '5px',
-      borderBottom: '1px solid black'
+      borderBottom: '1px solid black',
+      ...(style || {})
     }
   })
 
   /**
    * Render
    */
-  return <Text style={style.cell}>{content || ' '}</Text>
+  return <Text style={internalStyle.cell}>{content || ' '}</Text>
 }
 
 export default Cell
