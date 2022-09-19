@@ -1,8 +1,8 @@
-export type Column = (string | JSX.Element | undefined)[];
+export type ReactPdfTableRow = (string | JSX.Element | undefined)[];
 
-export interface Data {
+export interface ReactPdfTableData {
   title?: string | JSX.Element;
-  headers?: Column;
-  rows?: Column[];
-  footer?: Column;
+  headers?: ReactPdfTableRow;
+  rows?: ReactPdfTableRow[];
+  footer?: ReactPdfTableRow;
 }
