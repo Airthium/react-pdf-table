@@ -21,9 +21,9 @@ const Header = ({ headers }: HeaderProps) => {
 
   return (
     <View style={styles.row}>
-      {headers.map((field, index) => {
-        return <Cell cellData={field} key={index} />
-      })}
+      {headers.map((field, index) => (
+        <Cell key={index} content={field} />
+      ))}
     </View>
   )
 }

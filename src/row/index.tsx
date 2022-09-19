@@ -1,6 +1,13 @@
+import React from 'react'
 import { View, StyleSheet, Text } from '@react-pdf/renderer'
 
-const Row = ({ data }) => {
+import { ReactPdfTableRow } from '../../index.d'
+
+export interface RowProps {
+  rows: ReactPdfTableRow[]
+}
+
+const Row = ({ rows }: RowProps) => {
   const styles = StyleSheet.create({
     tableContainer: {
       flexDirection: 'column',
@@ -17,19 +24,15 @@ const Row = ({ data }) => {
     }
   })
 
-  const rows = data.items.map((item, index) => (
-    <View style={styles.row} key={index}>
-      <Text>{item}</Text>
-      <Text>{item}</Text>
-      <Text>{item}</Text>
-    </View>
-  ))
-
   return (
     <View style={styles.tableContainer}>
-      {/*<TableHeader />*/}
-      <Fragment>{rows}</Fragment>
-      {/*<TableFooter />*/}
+      {rows.map((row, index) => (
+        <>
+          <Text>{row}</Text>
+          <Text>{row}</Text>
+          <Text>{row}</Text>
+        </>
+      ))}
     </View>
   )
 }
