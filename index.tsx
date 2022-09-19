@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactPDF, { Page, Document, StyleSheet } from '@react-pdf/renderer'
+import { Page, Document, StyleSheet } from '@react-pdf/renderer'
 
 import { ReactPdfTableData } from './index.d'
 

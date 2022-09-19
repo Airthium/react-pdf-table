@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from '@react-pdf/renderer'
 import { ReactPdfTableRow } from '../../index.d'
 
 export interface RowProps {
-  rows: ReactPdfTableRow[]
+  rows?: ReactPdfTableRow[]
 }
 
 const Row = ({ rows }: RowProps) => {
@@ -24,7 +24,7 @@ const Row = ({ rows }: RowProps) => {
     }
   })
 
-  return (
+  return rows ? (
     <View style={styles.tableContainer}>
       {rows.map((row, index) => (
         <>
@@ -34,7 +34,7 @@ const Row = ({ rows }: RowProps) => {
         </>
       ))}
     </View>
-  )
+  ) : null
 }
 
 export default Row

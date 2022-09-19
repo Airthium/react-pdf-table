@@ -6,7 +6,7 @@ import { ReactPdfTableRow } from '../../index.d'
 import Cell from '../cell'
 
 export interface HeaderProps {
-  headers: ReactPdfTableRow
+  headers?: ReactPdfTableRow
 }
 
 const Header = ({ headers }: HeaderProps) => {
@@ -19,13 +19,13 @@ const Header = ({ headers }: HeaderProps) => {
     }
   })
 
-  return (
+  return headers ? (
     <View style={styles.row}>
       {headers.map((field, index) => (
         <Cell key={index} content={field} />
       ))}
     </View>
-  )
+  ) : null
 }
 
 export default Header
