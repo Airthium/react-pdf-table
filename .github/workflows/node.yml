@@ -35,6 +35,7 @@ jobs:
         with:
           always-auth: true
           registry-url: 'https://registry.npmjs.org'
+          scope: '@airthium'
       - name: Publish NPM
         run: npm publish --access=public
         env:
