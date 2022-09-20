@@ -6,11 +6,17 @@ import {
   ReactPdfTableCells,
   ReactPdfTableColumnData,
   ReactPdfTableData,
-  ReactPdfTableRowData
+  ReactPdfTableRowData,
+  ReactPdfTableStyle
 } from '../index.d'
 import Cell from './cell'
 
-const Header = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
+const Header = ({
+  content
+}: {
+  content: ReactPdfTableCell
+  style?: any
+}): JSX.Element => {
   return (
     <Cell
       content={content}
@@ -19,7 +25,12 @@ const Header = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
   )
 }
 
-const Rows = ({ content }: { content: ReactPdfTableCells }): JSX.Element => {
+const Rows = ({
+  content
+}: {
+  content: ReactPdfTableCells
+  style?: any
+}): JSX.Element => {
   return (
     <>
       {content.map((value, index) => (
@@ -29,7 +40,12 @@ const Rows = ({ content }: { content: ReactPdfTableCells }): JSX.Element => {
   )
 }
 
-const Footer = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
+const Footer = ({
+  content
+}: {
+  content: ReactPdfTableCell
+  style?: any
+}): JSX.Element => {
   return <Text>{content}</Text>
 }
 
@@ -38,6 +54,7 @@ const Footer = ({ content }: { content: ReactPdfTableCell }): JSX.Element => {
  */
 export interface TableProps {
   data: ReactPdfTableData
+  style?: ReactPdfTableStyle
 }
 
 /**
@@ -45,25 +62,29 @@ export interface TableProps {
  * @param props Props
  * @returns Table
  */
-const Table = ({ data }: TableProps): JSX.Element => {
-  const style = StyleSheet.create({
-    view: {
-      padding: '10px'
+const Table = ({ data, style }: TableProps): JSX.Element => {
+  const internalStyle = StyleSheet.create({
+    container: {
+      padding: '10px',
+      ...(style?.container || {})
     },
     title: {
       fontSize: '16px',
-      marginBottom: '10px'
+      marginBottom: '10px',
+      ...(style?.title || {})
     },
-    subView: {
+    table: {
       display: 'flex',
       flexDirection: 'row',
-      border: '1px solid black'
+      border: '1px solid black',
+      ...(style?.table || {})
     },
     column: {
       display: 'flex',
       width: '100%',
       flexDirection: 'column',
-      borderRight: '1px solid black'
+      borderRight: '1px solid black',
+      ...(style?.column || {})
     }
   })
 
@@ -72,31 +93,29 @@ const Table = ({ data }: TableProps): JSX.Element => {
    * @returns Render
    */
   const tableRender = useCallback((): JSX.Element[] => {
+    let columns: ReactPdfTableCells[] = []
+
     // Row
     const rowData = data as ReactPdfTableRowData
+    const columnData = data as ReactPdfTableColumnData
     if (rowData.rows) {
-      const columns: ReactPdfTableCells[] = []
-
+      // Convert rows to columns
       rowData.rows.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
           if (!columns[colIndex]) columns[colIndex] = []
           columns[colIndex][rowIndex] = cell
         })
       })
-
-      return columns.map((column, index) => (
-        <View key={index} style={style.column}>
-          <Header content={data.headers?.[index]} />
-          <Rows content={column} />
-        </View>
-      ))
+    } else {
+      // Use columns
+      columns = columnData.columns
     }
 
-    const columnData = data as ReactPdfTableColumnData
-    return columnData.columns.map((column, index) => (
-      <View key={index} style={style.column}>
-        <Header content={data.headers?.[index]} />
-        <Rows content={column} />
+    // Render
+    return columns.map((column, index) => (
+      <View key={index} style={internalStyle.column}>
+        <Header content={data.headers?.[index]} style={style} />
+        <Rows content={column} style={style} />
       </View>
     ))
   }, [])
@@ -105,16 +124,16 @@ const Table = ({ data }: TableProps): JSX.Element => {
    * Render
    */
   return (
-    <View style={style.view}>
+    <View style={internalStyle.container}>
       {data.title && (
-        <View style={style.title}>
+        <View style={internalStyle.title}>
           <Text>{data.title}</Text>
         </View>
       )}
 
-      <View style={style.subView}>{tableRender()}</View>
+      <View style={internalStyle.table}>{tableRender()}</View>
 
-      <Footer content={data.footer} />
+      <Footer content={data.footer} style={style} />
     </View>
   )
 }
