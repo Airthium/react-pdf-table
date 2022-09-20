@@ -1,8 +1,10 @@
 .github
 docs
+jest
 node_modules
 src
 .gitignore
 .prettierrc
 tsconfig
+typedoc.json
 yarn.lock

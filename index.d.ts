@@ -44,13 +44,13 @@ type Style = ReactPDF.Styles['key']
  * Style
  */
 export interface ReactPdfTableStyle {
-  container: Style
-  title: Style
-  table: Style
-  header: Style
-  column: Style
-  cell: Style
-  footer: Style
+  container?: Style
+  title?: Style
+  table?: Style
+  header?: Style
+  column?: Style
+  cell?: Style
+  footer?: Style
 }
 
 /**

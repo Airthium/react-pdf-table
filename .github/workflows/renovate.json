@@ -1,0 +1,19 @@
+{
+  "extends": ["config:base"],
+  "schedule": ["before 9am on Monday"],
+  "baseBranches": ["main"],
+  "groupName": "all dependencies",
+  "separateMajorMinor": false,
+  "groupSlug": "all",
+  "packageRules": [
+    {
+      "packagePatterns": ["*"],
+      "groupName": "all dependencies",
+      "groupSlug": "all"
+    }
+  ],
+  "ignoreDeps": [],
+  "lockFileMaintenance": {
+    "enabled": false
+  }
+}

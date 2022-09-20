@@ -1,0 +1,9 @@
+{
+  "rootDir": "../",
+  "setupFiles": ["./jest/setup.js", "./jest/mock.js"],
+  "testMatch": ["**/*.test.tsx"],
+  "transform": {
+    "\\.tsx?$": ["babel-jest", { "configFile": "./jest/babel.config.json" }]
+  },
+  "testEnvironment": "jsdom"
+}
