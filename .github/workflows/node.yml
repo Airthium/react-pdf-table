@@ -25,6 +25,11 @@ jobs:
         run: yarn test
       - name: Build
         run: yarn build
+      - name: SonarCloud scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - uses: actions/setup-node@master
         with:
@@ -32,7 +37,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@airthium'
       - name: Publish NPM
-        run: yarn publish
+        run: yarn publish --access=public
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
@@ -45,9 +50,3 @@ jobs:
         run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: SonarCloud scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

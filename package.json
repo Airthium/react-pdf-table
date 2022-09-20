@@ -8,6 +8,11 @@
     "type": "git",
     "url": "https://github.com/Airthium/react-pdf-table.git"
   },
+  "keywords": [
+    "react-pdf",
+    "@react-pdf/renderer",
+    "table"
+  ],
   "scripts": {
     "prettier": "prettier -l '**/*.tsx'",
     "depcheck": "depcheck . --ignores @types/*,typedoc",
