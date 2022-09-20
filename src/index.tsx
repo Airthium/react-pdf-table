@@ -2,52 +2,16 @@ import { StyleSheet, Text, View } from '@react-pdf/renderer'
 import { useCallback } from 'react'
 
 import {
-  ReactPdfTableCell,
   ReactPdfTableCells,
   ReactPdfTableColumnData,
   ReactPdfTableData,
   ReactPdfTableRowData,
   ReactPdfTableStyle
 } from '../index.d'
-import Cell from './cell'
 
-const Header = ({
-  content
-}: {
-  content: ReactPdfTableCell
-  style?: any
-}): JSX.Element => {
-  return (
-    <Cell
-      content={content}
-      style={{ backgroundColor: '#abc', color: 'white' }}
-    />
-  )
-}
-
-const Rows = ({
-  content
-}: {
-  content: ReactPdfTableCells
-  style?: any
-}): JSX.Element => {
-  return (
-    <>
-      {content.map((value, index) => (
-        <Cell key={index} content={value} />
-      ))}
-    </>
-  )
-}
-
-const Footer = ({
-  content
-}: {
-  content: ReactPdfTableCell
-  style?: any
-}): JSX.Element => {
-  return <Text>{content}</Text>
-}
+import Header from './header'
+import Rows from './rows'
+import Footer from './footer'
 
 /**
  * Table props
@@ -63,6 +27,7 @@ export interface TableProps {
  * @returns Table
  */
 const Table = ({ data, style }: TableProps): JSX.Element => {
+  // Style
   const internalStyle = StyleSheet.create({
     container: {
       padding: '10px',
@@ -114,8 +79,8 @@ const Table = ({ data, style }: TableProps): JSX.Element => {
     // Render
     return columns.map((column, index) => (
       <View key={index} style={internalStyle.column}>
-        <Header content={data.headers?.[index]} style={style} />
-        <Rows content={column} style={style} />
+        <Header content={data.headers?.[index]} style={style?.header} />
+        <Rows content={column} style={style?.cell} />
       </View>
     ))
   }, [])
@@ -133,7 +98,7 @@ const Table = ({ data, style }: TableProps): JSX.Element => {
 
       <View style={internalStyle.table}>{tableRender()}</View>
 
-      <Footer content={data.footer} style={style} />
+      <Footer content={data.footer} style={style?.footer} />
     </View>
   )
 }
