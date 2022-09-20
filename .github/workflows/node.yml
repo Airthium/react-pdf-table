@@ -29,7 +29,11 @@ jobs:
         run: yarn test
       - name: Build
         run: yarn build
-      - name: Publish
+      - name: Publish NPM
+        run: yarn publish
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+      - name: Publish Github
         run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
