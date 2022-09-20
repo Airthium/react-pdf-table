@@ -1,0 +1,5 @@
+{
+  "entryPoints": ["./index.d.ts", "src/**/*.tsx"],
+  "name": "react-pdf-table",
+  "readme": "./README.md"
+}

@@ -1,3 +1,5 @@
+/** @module Types */
+
 import ReactPDF from '@react-pdf/renderer'
 
 export type ReactPdfTableCell = string | JSX.Element | undefined

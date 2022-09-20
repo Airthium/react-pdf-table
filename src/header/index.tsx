@@ -1,3 +1,5 @@
+/** @module Header */
+
 import { StyleSheet } from '@react-pdf/renderer'
 
 import { ReactPdfTableCell, ReactPdfTableStyle } from '../../index.d'

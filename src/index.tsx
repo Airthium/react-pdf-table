@@ -1,3 +1,5 @@
+/** @module Table */
+
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
 import { useCallback } from 'react'
 

@@ -1,3 +1,5 @@
+/** @module Footer */
+
 import { StyleSheet, Text, View } from '@react-pdf/renderer'
 
 import { ReactPdfTableCell, ReactPdfTableStyle } from '../../index.d'
@@ -16,9 +18,11 @@ const Footer = ({ content, style }: FooterProps): JSX.Element => {
   // Style
   const internalStyle = StyleSheet.create({
     footer: {
+      padding: '5px',
       ...(style || {})
     }
   })
+
   /**
    * Render
    */

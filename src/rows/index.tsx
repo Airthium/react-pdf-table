@@ -1,8 +1,11 @@
+/** @module Rows */
+
 import { ReactPdfTableCells, ReactPdfTableStyle } from '../../index.d'
+
 import Cell from '../cell'
 
 /**
- * Row props
+ * Rows props
  */
 export interface RowsProps {
   content: ReactPdfTableCells
@@ -10,9 +13,9 @@ export interface RowsProps {
 }
 
 /**
- * Row
+ * Rows
  * @param prop Props
- * @returns Row
+ * @returns Rows
  */
 const Rows = ({ content, style }: RowsProps): JSX.Element => {
   /**
