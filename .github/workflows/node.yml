@@ -43,10 +43,9 @@ jobs:
 
       - uses: actions/setup-node@master
         with:
-          always-auth: true
           registry-url: 'https://registry.npmjs.org'
           scope: '@airthium'
       - name: Publish NPM
-        run: npm publish --access=public
+        run: yarn publish --access=public
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

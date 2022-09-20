@@ -23,7 +23,7 @@ import Table from 'react-pdf-table'
 
 Make sure to have a dataset, with either **rows** or **columns**
 
-```tsx
+```jsx
 const data = {
   title: 'Table title',
   headers: ['head 1', 'head 2', 'head 3'],
@@ -40,7 +40,7 @@ Call it with your data, following react-pdf's architecture ( Can be found on htt
 
 Here is a basic example :
 
-```tsx
+```jsx
 <PDFViewer width={'100%'} height={'800px'}>
   <Document>
     <Page size="A4">
