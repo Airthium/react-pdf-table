@@ -1,10 +1,13 @@
 {
   "name": "react-pdf-table",
   "version": "0.1.0",
-  "private": true,
   "license": "MIT",
   "main": "build/index.js",
   "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Airthium/react-pdf-table.git"
+  },
   "scripts": {
     "prettier": "prettier -l '**/*.tsx'",
     "depcheck": "depcheck . --ignores @types/*,typedoc",

@@ -7,6 +7,7 @@ src
 .gitignore
 .prettierrc
 jest.config.json
-tsconfig
+sonar-project.properties
+tsconfig.json
 typedoc.json
 yarn.lock
