@@ -2,7 +2,7 @@ name: Node
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -21,5 +21,33 @@ jobs:
         run: yarn prettier
       - name: Doc
         run: yarn doc
+      - name: Test
+        run: yarn test
       - name: Build
         run: yarn build
+
+      - uses: actions/setup-node@master
+        with:
+          always-auth: true
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@airthium'
+      - name: Publish NPM
+        run: yarn publish
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      - uses: actions/setup-node@master
+        with:
+          always-auth: true
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@airthium'
+      - name: Publish Github
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: SonarCloud scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

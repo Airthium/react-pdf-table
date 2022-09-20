@@ -14,5 +14,6 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["src/**/*.test.tsx"]
 }

@@ -1,10 +1,13 @@
 .github
+coverage
 docs
 jest
 node_modules
 src
 .gitignore
 .prettierrc
-tsconfig
+jest.config.json
+sonar-project.properties
+tsconfig.json
 typedoc.json
 yarn.lock

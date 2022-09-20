@@ -1,15 +1,18 @@
 {
-  "name": "react-pdf-table",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@airthium/react-pdf-table",
+  "version": "0.9.0",
   "license": "MIT",
   "main": "build/index.js",
   "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Airthium/react-pdf-table.git"
+  },
   "scripts": {
     "prettier": "prettier -l '**/*.tsx'",
     "depcheck": "depcheck . --ignores @types/*,typedoc",
     "doc": "typedoc",
-    "test": "jest --config ./jest/config.json --silent",
+    "test": "jest --silent --coverage",
     "build": "tsc"
   },
   "devDependencies": {
