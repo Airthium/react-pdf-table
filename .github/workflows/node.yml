@@ -13,9 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - uses: actions/setup-node@master
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@airthium'
       - name: Install
         run: yarn install
       - name: Depcheck
@@ -31,7 +28,7 @@ jobs:
       - name: Publish
         run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: SonarCloud scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
