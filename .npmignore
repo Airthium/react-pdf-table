@@ -6,6 +6,7 @@ node_modules
 src
 .gitignore
 .prettierrc
+jest.config.json
 tsconfig
 typedoc.json
 yarn.lock
