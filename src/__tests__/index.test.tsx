@@ -1,5 +1,6 @@
-import Table from '..'
 import { render } from '@testing-library/react'
+
+import Table from '..'
 
 jest.mock('../header', () => () => <div />)
 jest.mock('../rows', () => () => <div />)

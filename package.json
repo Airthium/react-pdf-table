@@ -9,7 +9,7 @@
     "prettier": "prettier -l '**/*.tsx'",
     "depcheck": "depcheck . --ignores @types/*,typedoc",
     "doc": "typedoc",
-    "test": "jest --config ./jest/config.json --silent",
+    "test": "jest --config ./jest/config.json --silent --coverage",
     "build": "tsc"
   },
   "devDependencies": {
