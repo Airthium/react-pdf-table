@@ -1,4 +1,4 @@
-name: Node
+name: Release
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Node
+    name: Release
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -15,27 +15,14 @@ jobs:
       - uses: actions/setup-node@master
       - name: Install
         run: yarn install
-      - name: Depcheck
-        run: yarn depcheck
-      - name: Lint
-        run: yarn prettier
-      - name: Doc
-        run: yarn doc
-      - name: Test
-        run: yarn test
       - name: Build
         run: yarn build
-      - name: SonarCloud scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - uses: actions/setup-node@master
         with:
           always-auth: true
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@airthium'
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@airthium"
       - name: Publish Github
         run: yarn publish
         env:
@@ -43,8 +30,8 @@ jobs:
 
       - uses: actions/setup-node@master
         with:
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@airthium'
+          registry-url: "https://registry.npmjs.org"
+          scope: "@airthium"
       - name: Publish NPM
         run: yarn publish --access=public
         env:
