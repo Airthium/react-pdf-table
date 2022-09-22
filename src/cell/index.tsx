@@ -23,7 +23,8 @@ const Cell = ({ content, style }: CellProps): JSX.Element => {
     cell: {
       padding: '5px',
       borderBottom: '1px solid black',
-      ...(style || {})
+      ...(style || {}),
+      height: '30px'
     }
   })
 

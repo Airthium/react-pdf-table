@@ -128,7 +128,11 @@ if (process.env.REACT_APP_RENDER_TEST) {
     ],
     rows: [
       ['head1, row1', 'head2, row1', 'head3, row1'],
-      ['head1, row2', 'head2, row2', 'head2, row2']
+      [
+        'head1, row2',
+        'head2, row2',
+        'the long head2, row2, too long to stay just in one line'
+      ]
     ]
   }
 
