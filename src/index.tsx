@@ -1,7 +1,15 @@
 /** @module Table */
 
-import { StyleSheet, Text, View } from '@react-pdf/renderer'
-import { useCallback } from 'react'
+import React, { useCallback } from 'react'
+import ReactDOM from 'react-dom/client'
+import {
+  Document,
+  Page,
+  PDFViewer,
+  StyleSheet,
+  Text,
+  View
+} from '@react-pdf/renderer'
 
 import {
   ReactPdfTableCells,
@@ -103,6 +111,37 @@ const Table = ({ data, style, wrap = true }: TableProps): JSX.Element => {
 
       <Footer content={data.footer} style={style?.footer} />
     </View>
+  )
+}
+
+if (process.env.REACT_APP_RENDER_TEST) {
+  const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+  )
+
+  const data = {
+    title: 'Table title',
+    headers: [
+      'head 1',
+      'the long head 2, too long to stay just in one line',
+      'head 3'
+    ],
+    rows: [
+      ['head1, row1', 'head2, row1', 'head3, row1'],
+      ['head1, row2', 'head2, row2', 'head2, row2']
+    ]
+  }
+
+  root.render(
+    <React.StrictMode>
+      <PDFViewer width={800} height={600}>
+        <Document>
+          <Page size="A4">
+            <Table data={data} />
+          </Page>
+        </Document>
+      </PDFViewer>
+    </React.StrictMode>
   )
 }
 

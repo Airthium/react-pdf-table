@@ -3,6 +3,8 @@ coverage
 docs
 jest
 node_modules
+public
+rendertest
 src
 .gitignore
 .prettierrc
