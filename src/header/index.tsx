@@ -25,6 +25,7 @@ const Header = ({ content, style }: HeaderProps): JSX.Element => {
     cell: {
       backgroundColor: '#abc',
       color: 'white',
+      height: '50%',
       ...(style || {})
     }
   })

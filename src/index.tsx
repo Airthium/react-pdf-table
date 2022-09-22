@@ -21,6 +21,7 @@ import Footer from './footer'
 export interface TableProps {
   data: ReactPdfTableData
   style?: ReactPdfTableStyle
+  wrap?: boolean
 }
 
 /**
@@ -28,7 +29,7 @@ export interface TableProps {
  * @param props Props
  * @returns Table
  */
-const Table = ({ data, style }: TableProps): JSX.Element => {
+const Table = ({ data, style, wrap = true }: TableProps): JSX.Element => {
   // Style
   const internalStyle = StyleSheet.create({
     container: {
@@ -91,7 +92,7 @@ const Table = ({ data, style }: TableProps): JSX.Element => {
    * Render
    */
   return (
-    <View style={internalStyle.container}>
+    <View style={internalStyle.container} wrap={wrap}>
       {data.title && (
         <View style={internalStyle.title}>
           <Text>{data.title}</Text>

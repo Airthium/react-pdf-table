@@ -8,7 +8,7 @@ With react-pdf-table, create custom tables and add them to your pdf content.
 
 # How to install
 
-Add the package using whether yarn or npm :
+Add the package, whether with yarn or npm :
 
 - npm install react-pdf-table
 - yarn add react-pdf-table
