@@ -14,9 +14,8 @@ import {
 import {
   ReactPdfTableCells,
   ReactPdfTableColumnData,
-  ReactPdfTableData,
-  ReactPdfTableRowData,
-  ReactPdfTableStyle
+  ReactPdfTableProps,
+  ReactPdfTableRowData
 } from '../index.d'
 
 import Header from './header'
@@ -24,20 +23,15 @@ import Rows from './rows'
 import Footer from './footer'
 
 /**
- * Table props
- */
-export interface TableProps {
-  data: ReactPdfTableData
-  style?: ReactPdfTableStyle
-  wrap?: boolean
-}
-
-/**
  * Table
  * @param props Props
  * @returns Table
  */
-const Table = ({ data, style, wrap = true }: TableProps): JSX.Element => {
+const Table = ({
+  data,
+  style,
+  wrap = false
+}: ReactPdfTableProps): JSX.Element => {
   // Style
   const internalStyle = StyleSheet.create({
     container: {

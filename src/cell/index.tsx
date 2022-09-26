@@ -21,6 +21,9 @@ const Cell = ({ content, style }: CellProps): JSX.Element => {
   // Style
   const internalStyle = StyleSheet.create({
     cell: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       padding: '5px',
       borderBottom: '1px solid black',
       ...(style || {}),

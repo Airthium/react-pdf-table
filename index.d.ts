@@ -53,16 +53,17 @@ export interface ReactPdfTableStyle {
   footer?: Style
 }
 
+export interface ReactPdfTableProps {
+  data: ReactPdfTableData
+  style?: ReactPdfTableStyle
+  wrap?: boolean
+}
+
 /**
  * Table
  * @param props Props
  * @returns Table
  */
-const Table = ({
-  data
-}: {
-  data: ReactPdfTableData
-  style?: ReactPdfTableStyle
-}) => JSX.Element
+const Table = ({ data }: ReactPdfTableProps) => JSX.Element
 
 export default Table
