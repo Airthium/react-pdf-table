@@ -88,7 +88,7 @@ const Table = ({
         <Rows content={column} style={style?.cell} />
       </View>
     ))
-  }, [])
+  }, [data, style])
 
   /**
    * Render
