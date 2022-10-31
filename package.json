@@ -33,8 +33,8 @@
     "@react-pdf/renderer": "3.0.0",
     "@testing-library/react": "13.4.0",
     "@types/jest": "29.2.0",
-    "@types/node": "18.11.5",
-    "@types/react": "18.0.22",
+    "@types/node": "18.11.8",
+    "@types/react": "18.0.24",
     "babel-jest": "29.2.2",
     "buffer": "6.0.3",
     "depcheck": "1.4.3",
@@ -44,7 +44,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
-    "typedoc": "0.23.18",
+    "typedoc": "0.23.19",
     "typescript": "4.8.4"
   },
   "browserslist": {
