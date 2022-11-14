@@ -1,6 +1,6 @@
 {
   "name": "@airthium/react-pdf-table",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "license": "MIT",
   "homepage": "https://github.com/Airthium/react-pdf-table",
   "repository": {
@@ -24,7 +24,8 @@
     "doc": "typedoc",
     "test": "jest --silent --coverage",
     "rendertest": "REACT_APP_RENDER_TEST=1 react-scripts start",
-    "build": "tsc"
+    "minify": "uglifyjs-folder build -e -o build -x .js",
+    "build": "tsc --declaration && yarn minify"
   },
   "devDependencies": {
     "@babel/preset-env": "7.20.2",
@@ -45,7 +46,8 @@
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
     "typedoc": "0.23.21",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "uglifyjs-folder": "3.1.4"
   },
   "browserslist": {
     "production": [
