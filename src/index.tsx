@@ -108,6 +108,7 @@ const Table = ({
   )
 }
 
+/* istanbul ignore if */
 if (process.env.REACT_APP_RENDER_TEST) {
   const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
