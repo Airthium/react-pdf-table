@@ -2077,6 +2077,18 @@
     fontkit "^2.0.2"
     vite-compatible-readable-stream "^3.6.1"
 
+"@react-pdf/pdfkit@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@react-pdf/pdfkit/-/pdfkit-3.0.1.tgz#cac380bef26872a065bb4653a89f75acf14e9c07"
+  integrity sha512-KzHZjkzLCVsZEWErvnh7NtuJfHNThDHgOrhdP7js7z9u5BLI0hwdGhy9N99FTYzpFjhkGLlGeyF0jBLooBevuQ==
+  dependencies:
+    "@babel/runtime" "^7.16.4"
+    "@react-pdf/png-js" "^2.2.0"
+    browserify-zlib "^0.2.0"
+    crypto-js "^4.0.0"
+    fontkit "^2.0.2"
+    vite-compatible-readable-stream "^3.6.1"
+
 "@react-pdf/png-js@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@react-pdf/png-js/-/png-js-2.2.0.tgz#c40ec2ae745f2feb7bd557024af8f366c2c8c00e"
@@ -2105,18 +2117,18 @@
     parse-svg-path "^0.1.2"
     svg-arc-to-cubic-bezier "^3.2.0"
 
-"@react-pdf/renderer@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@react-pdf/renderer/-/renderer-3.0.1.tgz#237e7e5f7300c46a3c74dd6f23ed598bbb9cd670"
-  integrity sha512-NuyXB8dsKVO1r+MBXl/SHZ8rAV979TgnRg8/5L9oiPYwG+WsV4gu2xm2bqoRdU8ltasKkVALK7hdgwh9XX+ZCA==
+"@react-pdf/renderer@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@react-pdf/renderer/-/renderer-3.0.2.tgz#9c55b409e08ee5c7c80728ec06732c75f5459fa8"
+  integrity sha512-lrYZWEZzt0P0Cdz6/My03+gDs//g++LeHjWzBM8dZYCad3HBa3EFFDZjosD+jyq3VYvetGN9bqzwTg+ODhx+8g==
   dependencies:
     "@babel/runtime" "^7.16.4"
     "@react-pdf/font" "^2.3.1"
     "@react-pdf/layout" "^3.2.1"
-    "@react-pdf/pdfkit" "^3.0.0"
+    "@react-pdf/pdfkit" "^3.0.1"
     "@react-pdf/primitives" "^3.0.0"
     "@react-pdf/render" "^3.2.1"
-    "@react-pdf/types" "^2.1.0"
+    "@react-pdf/types" "^2.1.1"
     queue "^6.0.1"
     react-reconciler "^0.23.0"
     scheduler "^0.17.0"
@@ -2148,6 +2160,11 @@
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@react-pdf/types/-/types-2.1.0.tgz#e377507ae28d043d8911667c8a2a56d77e36fb89"
   integrity sha512-PmmcPFlehRmLEE7p5bhapNya1NS3lV77dRNs9YEf1wNVbKsf10cF4yXDq813cNwm2YYIhCIgaU98O5GBBxMZaQ==
+
+"@react-pdf/types@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@react-pdf/types/-/types-2.1.1.tgz#b94f4ce5ba55449ca1d3d467d0931595f68c0561"
+  integrity sha512-wMv2FCSyQHMCWeQa/Bwnd3eZc/4HtRrB10HMObPzT6E5fIsmv25tPdqfpuQ1bU9u306q/POKAGEvjCnDLX9B6g==
 
 "@react-pdf/yoga@^3.0.0":
   version "3.0.0"
@@ -2538,10 +2555,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@29.2.4":
-  version "29.2.4"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.2.4.tgz#9c155c4b81c9570dbd183eb8604aa0ae80ba5a5b"
-  integrity sha512-PipFB04k2qTRPePduVLTRiPzQfvMeLwUN3Z21hsAKaB/W9IIzgB2pizCL466ftJlcyZqnHoC9ZHpxLGl3fS86A==
+"@types/jest@29.2.5":
+  version "29.2.5"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.2.5.tgz#c27f41a9d6253f288d1910d3c5f09484a56b73c0"
+  integrity sha512-H2cSxkKgVmqNHXP7TC2L/WUorrZu8ZigyRywfVzv6EyBlxj39n4C00hjXYQWsbwqgElaj/CiAeSRmk5GoaKTgw==
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
@@ -2585,10 +2602,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.18.tgz#633184f55c322e4fb08612307c274ee6d5ed3154"
   integrity sha512-m+6nTEOadJZuTPkKR/SYK3A2d7FZrgElol9UP1Kae90VVU4a6mxnPuLiIW1m4Cq4gZ/nWb9GrdVXJCoCazDAbg==
 
-"@types/node@18.11.17":
-  version "18.11.17"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.17.tgz#5c009e1d9c38f4a2a9d45c0b0c493fe6cdb4bcb5"
-  integrity sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng==
+"@types/node@18.11.18":
+  version "18.11.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
+  integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -9967,10 +9984,10 @@ terser-webpack-plugin@^5.1.3, terser-webpack-plugin@^5.2.5:
     serialize-javascript "^6.0.0"
     terser "^5.14.1"
 
-terser@5.14.2:
-  version "5.14.2"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.14.2.tgz#9ac9f22b06994d736174f4091aa368db896f1c10"
-  integrity sha512-oL0rGeM/WFQCUd0y2QrWxYnq7tfSuKBiqTjRPWrRgB46WD/kiwHwF8T23z78H6Q6kGCuuHcPB+KULHRdxvVGQA==
+terser@5.16.1:
+  version "5.16.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.16.1.tgz#5af3bc3d0f24241c7fb2024199d5c461a1075880"
+  integrity sha512-xvQfyfA1ayT0qdK47zskQgRZeWLoOQ8JQ6mIgRGVNwZKdQMU+5FkCBjmv4QjcrTzyZquRw2FVtlJSRUmMKQslw==
   dependencies:
     "@jridgewell/source-map" "^0.3.2"
     acorn "^8.5.0"
@@ -10190,17 +10207,17 @@ typescript@4.9.4:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.4.tgz#a2a3d2756c079abda241d75f149df9d561091e78"
   integrity sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==
 
-uglifyjs-folder@3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/uglifyjs-folder/-/uglifyjs-folder-3.1.4.tgz#a3b858a50b59d65992a75ad96e75be5c426cf463"
-  integrity sha512-0CqKbfNFm7Q4nwNnCgG4K/8DkzIG/fDxohAugcpbA4DYMGy2hQaMzJGCU7agaFKrWM9CDBMa+YIE2TkbDTTMJQ==
+uglifyjs-folder@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/uglifyjs-folder/-/uglifyjs-folder-3.2.0.tgz#d9c69e73166819f66e4e62f363c0758c0afa8796"
+  integrity sha512-FjrSkbzTQi03K2NlaWVL0DGmsL+2rGuneOsMWgqBX+jbnlipBrnI1GV2QtH+TeBT7aV+bumPvqm344TbTn+6Og==
   dependencies:
     extend "3.0.2"
     globby "11.1.0"
     graceful-fs "4.2.10"
     meow "9.0.0"
     mkdirp "1.0.4"
-    terser "5.14.2"
+    terser "5.16.1"
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
