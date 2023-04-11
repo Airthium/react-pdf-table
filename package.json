@@ -35,7 +35,7 @@
     "@testing-library/react": "14.0.0",
     "@types/jest": "29.5.0",
     "@types/node": "18.15.11",
-    "@types/react": "18.0.32",
+    "@types/react": "18.0.34",
     "babel-jest": "29.5.0",
     "buffer": "6.0.3",
     "depcheck": "1.4.3",
@@ -45,8 +45,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
-    "typedoc": "0.23.28",
-    "typescript": "5.0.3",
+    "typedoc": "0.24.1",
+    "typescript": "5.0.4",
     "uglifyjs-folder": "3.2.0"
   },
   "browserslist": {
